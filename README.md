@@ -58,3 +58,22 @@ GitHub Pages 从 `main` 分支根目录直接发布，推上去等一两分钟�
   一次上传多个文件（`/upload/main`），多个文件落在同一个 commit 里，只重建一次。
 - **没有 token 也能提交**：网页编辑器 / 上传页用的是浏览器里已有的登录态。有 token 的话最快
   是一条 `git commit && git push`，或者一次 REST `PUT /repos/{owner}/{repo}/contents/{path}`。
+
+## 带 token 的发布路径（推荐）
+
+本机有一个 fine-grained PAT（名称 `dsh-workstation-site`，90 天有效期），权限只有本仓库
+Contents: Read and write。它存在 `效率优化/private/.gh-token`，不进仓库。
+
+有了 token，最省事的是 git push：
+
+```bash
+TOK=$(cat private/.gh-token)
+git clone "https://x-access-token:$TOK@github.com/Christinachloe/Christinachloe.github.io.git"
+cd Christinachloe.github.io && git commit -am "update" && git push
+```
+
+单文件改动用 REST 也行，不必 clone；没有 token 时退回浏览器登录态那套（见上节）。
+
+两个前提：`api.github.com` 未认证按 IP 限流（60 次/小时），带 token 是 5000 次/小时；
+本机若存在 `HTTP_PROXY` 且代理已死，curl 要加 `--noproxy '*'`，浏览器侧则会偶发
+`ERR_CONNECTION_CLOSED`，重试一次即可。
