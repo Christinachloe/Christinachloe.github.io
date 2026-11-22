@@ -51,3 +51,10 @@ python -m http.server 8899
 ## 发布
 
 GitHub Pages 从 `main` 分支根目录直接发布，推上去等一两分钟即可。
+
+两个坑先说：
+
+- **一个文件一个 commit** 会把历史弄得很碎，Pages 也会跟着重建好几次。GitHub 网页版支持
+  一次上传多个文件（`/upload/main`），多个文件落在同一个 commit 里，只重建一次。
+- **没有 token 也能提交**：网页编辑器 / 上传页用的是浏览器里已有的登录态。有 token 的话最快
+  是一条 `git commit && git push`，或者一次 REST `PUT /repos/{owner}/{repo}/contents/{path}`。
