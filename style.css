@@ -139,3 +139,27 @@ a:hover{color:var(--accent)}
   .works li{flex-direction:column; gap:2px}
   .works .date{width:auto}
 }
+
+/* 项目卡里的补充说明 */
+.card p.note{
+  font-size:.88rem; color:var(--muted); margin:.4rem 0 0;
+  padding-left:.7rem; border-left:2px solid var(--line);
+}
+
+/* 键盘跳过导航 */
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:50;
+  background:var(--accent); color:#fff; padding:10px 16px; border-radius:0 0 var(--radius) 0;
+}
+.skip:focus{left:0}
+
+/* 焦点可见 */
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px; border-radius:6px;
+}
+
+/* 尊重减少动效偏好 */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important; animation:none !important}
+}
