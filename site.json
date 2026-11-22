@@ -2,41 +2,55 @@
   "meta": {
     "name": "Christinachloe",
     "tagline": "项目 · 目标 · 成果",
-    "intro": "这里是个人主页，同时也是我自己的项目台账。改内容只需要编辑根目录的 site.json，页面会自动渲染。",
+    "intro": "这里是我的项目台账：正在做的东西、接下来的目标、已经跑起来的结果。整站只有 site.json 一个数据源，改它页面就变。",
     "links": [
       {
         "label": "GitHub",
         "url": "https://github.com/Christinachloe"
       },
       {
-        "label": "邮箱",
-        "url": "mailto:your@email.com"
+        "label": "反馈",
+        "url": "https://github.com/Christinachloe/Christinachloe.github.io/issues"
       }
     ],
     "updated": "2026-11-22"
   },
   "projects": [
     {
-      "name": "示例项目：把这里的名字换成你的",
-      "summary": "一句话说清它解决什么问题、给谁用。不超过两行，读完不看代码也知道在干什么。",
+      "name": "dsh-dsml-guard",
+      "summary": "DeepSeek Harness 插件。模型偶尔会把工具调用退化成一段带特殊竖线的残片塞进正文，这个插件把它拦下来：判定泄漏 → 该步直接判失败 → 宿主原地重跑，脏文本一行都不进会话。",
       "status": "进行中",
       "stack": [
-        "Python",
-        "FastAPI"
-      ],
-      "repo": "https://github.com/Christinachloe/REPO_NAME",
-      "demo": "",
-      "note": "这条是模板，删掉换成真项目"
-    },
-    {
-      "name": "示例项目：已完成的东西放这里",
-      "summary": "已经跑起来、能给人看的东西优先往前排。有截图的话放进仓库根目录再引用。",
-      "status": "已完成",
-      "stack": [
-        "TypeScript"
+        "Node.js",
+        "ESM",
+        "DSH Plugin"
       ],
       "repo": "",
-      "demo": "https://example.com",
+      "demo": "",
+      "note": "139 项单测 + 16 项日志检查全过；包已成型（locale、图标、清单自检、CI），发布先观察一段时间。"
+    },
+    {
+      "name": "个人主页 / 项目台账",
+      "summary": "就是你正在看的这一页。纯静态、零构建、零依赖，GitHub Pages 直接发布；所有文字都在 site.json 里，改内容不用碰 HTML/CSS/JS。",
+      "status": "已完成",
+      "stack": [
+        "HTML",
+        "CSS",
+        "Vanilla JS"
+      ],
+      "repo": "https://github.com/Christinachloe/Christinachloe.github.io",
+      "demo": "https://christinachloe.github.io/",
+      "note": ""
+    },
+    {
+      "name": "更多 DSH 插件",
+      "summary": "把每天重复做的诊断和检查写成插件：一次判据，从此不用每次重查。第一个是 dsml-guard，后面按需要长。",
+      "status": "规划中",
+      "stack": [
+        "Node.js"
+      ],
+      "repo": "",
+      "demo": "",
       "note": ""
     }
   ],
@@ -44,29 +58,35 @@
     {
       "period": "2026 Q4",
       "status": "进行中",
-      "title": "当前季度要拿下的东西",
+      "title": "把手上的东西做成能给别人装的",
       "items": [
-        "目标写成可验证的一句话，比如「上线一个能访问的个人站」",
-        "第二个目标。三条以内，多了不会做",
-        "第三个目标"
+        "dsh-dsml-guard 发到 npm，带完整的 locale、图标和变更记录",
+        "主页内容全部换成真项目，一条模板句都不留",
+        "把反复出现的诊断结论固化成插件，而不是每次重查一遍"
       ]
     },
     {
       "period": "2027 上半年",
       "status": "规划中",
-      "title": "下一段的方向",
+      "title": "沉淀成一套能复用的骨架",
       "items": [
-        "先写方向，不写细节",
-        "到时候再拆成季度目标"
+        "整理一份 DSH 插件脚手架：清单、图标、单测、CI 一次到位",
+        "目标是别人装一次就能跑，不需要我在旁边远程帮"
       ]
     }
   ],
   "works": [
     {
-      "title": "成果条目：写过的文章 / 发布的东西 / 拿到的结果",
       "date": "2026-11",
-      "desc": "发生了什么，有什么可验证的证据。",
+      "title": "dsh-dsml-guard 0.14.0",
+      "desc": "把 DSML 残片挡在会话之外：判泄漏 → 判该步失败 → 宿主重跑。139 项单测、16 项日志检查、发布清单自检全绿。",
       "link": ""
+    },
+    {
+      "date": "2026-11",
+      "title": "个人主页上线",
+      "desc": "纯静态站点，GitHub Pages 直接发布；内容、样式、脚本各自独立，改文字只动 JSON。",
+      "link": "https://christinachloe.github.io/"
     }
   ]
 }
