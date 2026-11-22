@@ -2,7 +2,7 @@
   "meta": {
     "name": "Christinachloe",
     "tagline": "项目 · 目标 · 成果",
-    "intro": "这里是个人主页，同时也是我自己的项目台账。改内容只需要编辑 data/site.json，页面会自动渲染。",
+    "intro": "这里是个人主页，同时也是我自己的项目台账。改内容只需要编辑根目录的 site.json，页面会自动渲染。",
     "links": [
       {
         "label": "GitHub",
@@ -30,7 +30,7 @@
     },
     {
       "name": "示例项目：已完成的东西放这里",
-      "summary": "已经跑起来、能给人看的东西优先往前排。有截图的话放到 assets/ 目录再引用。",
+      "summary": "已经跑起来、能给人看的东西优先往前排。有截图的话放进仓库根目录再引用。",
       "status": "已完成",
       "stack": [
         "TypeScript"
