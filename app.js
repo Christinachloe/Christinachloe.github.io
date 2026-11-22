@@ -48,7 +48,7 @@
     document.getElementById("projectCount").textContent = list.length ? list.length + " 个" : "";
 
     if (!list.length) {
-      box.appendChild(el("p", "card", "还没有项目条目，去 data/site.json 里加。"));
+      box.appendChild(el("p", "card", "还没有项目条目，去 site.json 里加。"));
       return;
     }
 
@@ -61,6 +61,7 @@
       card.appendChild(top);
 
       if (p.summary) card.appendChild(el("p", null, p.summary));
+      if (p.note) card.appendChild(el("p", "note", p.note));
 
       if (p.stack && p.stack.length) {
         var st = el("div", "stack");
@@ -148,7 +149,7 @@
   });
 
   document.getElementById("footText").textContent =
-    "© " + new Date().getFullYear() + " · 内容在 data/site.json 里维护";
+    "© " + new Date().getFullYear() + " · 内容在 site.json 里维护";
 
   fetch("site.json", { cache: "no-cache" })
     .then(function (r) {
@@ -164,6 +165,6 @@
     .catch(function (e) {
       document.getElementById("heroName").textContent = "数据没加载上";
       document.getElementById("heroIntro").textContent =
-        "data/site.json 读取失败（" + e.message + "）。本地直接双击 index.html 会因为浏览器的本地文件限制看不到数据，起个本地服务即可：python -m http.server";
+        "site.json 读取失败（" + e.message + "）。本地直接双击 index.html 会因为浏览器的本地文件限制看不到数据，起个本地服务即可：python -m http.server";
     });
 })();
