@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "name": "Christinachloe",
+    "tagline": "项目 · 目标 · 成果",
+    "intro": "这里是个人主页，同时也是我自己的项目台账。改内容只需要编辑 data/site.json，页面会自动渲染。",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Christinachloe"
+      },
+      {
+        "label": "邮箱",
+        "url": "mailto:your@email.com"
+      }
+    ],
+    "updated": "2026-11-22"
+  },
+  "projects": [
+    {
+      "name": "示例项目：把这里的名字换成你的",
+      "summary": "一句话说清它解决什么问题、给谁用。不超过两行，读完不看代码也知道在干什么。",
+      "status": "进行中",
+      "stack": [
+        "Python",
+        "FastAPI"
+      ],
+      "repo": "https://github.com/Christinachloe/REPO_NAME",
+      "demo": "",
+      "note": "这条是模板，删掉换成真项目"
+    },
+    {
+      "name": "示例项目：已完成的东西放这里",
+      "summary": "已经跑起来、能给人看的东西优先往前排。有截图的话放到 assets/ 目录再引用。",
+      "status": "已完成",
+      "stack": [
+        "TypeScript"
+      ],
+      "repo": "",
+      "demo": "https://example.com",
+      "note": ""
+    }
+  ],
+  "goals": [
+    {
+      "period": "2026 Q4",
+      "status": "进行中",
+      "title": "当前季度要拿下的东西",
+      "items": [
+        "目标写成可验证的一句话，比如「上线一个能访问的个人站」",
+        "第二个目标。三条以内，多了不会做",
+        "第三个目标"
+      ]
+    },
+    {
+      "period": "2027 上半年",
+      "status": "规划中",
+      "title": "下一段的方向",
+      "items": [
+        "先写方向，不写细节",
+        "到时候再拆成季度目标"
+      ]
+    }
+  ],
+  "works": [
+    {
+      "title": "成果条目：写过的文章 / 发布的东西 / 拿到的结果",
+      "date": "2026-11",
+      "desc": "发生了什么，有什么可验证的证据。",
+      "link": ""
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christinachloe · 项目与目标</title>
+<meta name="description" content="个人主页：项目、目标计划与成果展示。">
+<meta property="og:title" content="Christinachloe · 项目与目标">
+<meta property="og:description" content="个人主页：项目、目标计划与成果展示。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar-inner">
+    <a class="brand" href="#top"><span class="dot"></span><span id="brandName">…</span></a>
+    <nav class="nav">
+      <a href="#projects">项目</a>
+      <a href="#goals">目标</a>
+      <a href="#works">成果</a>
+      <button id="themeBtn" class="theme-btn" type="button" aria-label="切换主题">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <h1 id="heroName">…</h1>
+    <p class="tagline" id="heroTagline"></p>
+    <p class="intro" id="heroIntro"></p>
+    <div class="links" id="heroLinks"></div>
+    <p class="updated" id="updated"></p>
+  </section>
+
+  <section id="projects" class="wrap section">
+    <div class="section-head">
+      <h2>项目</h2>
+      <span class="count" id="projectCount"></span>
+    </div>
+    <div class="cards" id="projectList"></div>
+  </section>
+
+  <section id="goals" class="wrap section">
+    <div class="section-head"><h2>目标计划</h2></div>
+    <div class="timeline" id="goalList"></div>
+  </section>
+
+  <section id="works" class="wrap section">
+    <div class="section-head"><h2>成果</h2></div>
+    <ul class="works" id="workList"></ul>
+  </section>
+</main>
+
+<footer class="wrap foot"><span id="footText"></span></footer>
+
+<script src="app.js"></script>
+</body>
+</html>
