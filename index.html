@@ -4,30 +4,41 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Christinachloe · 项目与目标</title>
-<meta name="description" content="个人主页：项目、目标计划与成果展示。">
-<meta property="og:title" content="Christinachloe · 项目与目标">
-<meta property="og:description" content="个人主页：项目、目标计划与成果展示。">
+<meta name="description" content="个人主页兼项目台账：正在做的项目、接下来的目标和已经跑起来的结果。">
+<meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://christinachloe.github.io/">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://christinachloe.github.io/">
+<meta property="og:title" content="Christinachloe · 项目与目标">
+<meta property="og:description" content="个人主页兼项目台账：正在做的项目、接下来的目标和已经跑起来的结果。">
+<meta property="og:image" content="https://christinachloe.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip" href="#top">跳到主要内容</a>
+
 <header class="topbar">
   <div class="wrap bar-inner">
-    <a class="brand" href="#top"><span class="dot"></span><span id="brandName">…</span></a>
+    <a class="brand" href="#top"><span class="dot"></span><span id="brandName">Christinachloe</span></a>
     <nav class="nav">
       <a href="#projects">项目</a>
       <a href="#goals">目标</a>
       <a href="#works">成果</a>
-      <button id="themeBtn" class="theme-btn" type="button" aria-label="切换主题">◐</button>
+      <button id="themeBtn" class="theme-btn" type="button" aria-label="切换深色/浅色">◐</button>
     </nav>
   </div>
 </header>
 
 <main id="top">
   <section class="hero wrap">
-    <h1 id="heroName">…</h1>
-    <p class="tagline" id="heroTagline"></p>
-    <p class="intro" id="heroIntro"></p>
+    <h1 id="heroName">Christinachloe</h1>
+    <p class="tagline" id="heroTagline">项目 · 目标 · 成果</p>
+    <p class="intro" id="heroIntro">这里是我的项目台账：正在做的东西、接下来的目标、已经跑起来的结果。整站只有 site.json 一个数据源，改它页面就变。</p>
     <div class="links" id="heroLinks"></div>
     <p class="updated" id="updated"></p>
   </section>
@@ -52,6 +63,13 @@
 </main>
 
 <footer class="wrap foot"><span id="footText"></span></footer>
+
+<noscript>
+  <div class="wrap" style="padding:24px 24px 64px;color:#8a919c">
+    这个页面靠 JS 读取 site.json 渲染。开启 JS 即可看到内容；文字本身都在
+    <a href="https://github.com/Christinachloe/Christinachloe.github.io/blob/main/site.json" style="color:#5b9dff">site.json</a> 里。
+  </div>
+</noscript>
 
 <script src="app.js"></script>
 </body>
