@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Christinachloe · 项目与目标</title>
-<meta name="description" content="个人主页兼项目台账：正在做的项目、接下来的目标和已经跑起来的结果。">
-<meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)">
+<meta name="description" content="个人主页兼项目台账：正在做的项目、接下来的目标和已经跑起来的结果。纯静态、零构建，内容全在 site.json。">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0a192f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f9fd" media="(prefers-color-scheme: light)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://christinachloe.github.io/">
 <meta property="og:type" content="website">
@@ -20,54 +21,95 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip" href="#top">跳到主要内容</a>
+<a class="skip" href="#main">跳到主要内容</a>
 
 <header class="topbar">
-  <div class="wrap bar-inner">
-    <a class="brand" href="#top"><span class="dot"></span><span id="brandName">Christinachloe</span></a>
-    <nav class="nav">
-      <a href="#projects">项目</a>
-      <a href="#goals">目标</a>
-      <a href="#works">成果</a>
-      <button id="themeBtn" class="theme-btn" type="button" aria-label="切换深色/浅色">◐</button>
+  <div class="bar">
+    <a class="brand" href="#hero" aria-label="回到顶部">
+      <span class="hex" aria-hidden="true">
+        <svg viewBox="0 0 36 40" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M18 1.6 34.4 11v18L18 38.4 1.6 29V11L18 1.6Z"/>
+          <path d="M11 24.5c1.8-2.2 4.2-3.3 7-3.3s5.2 1.1 7 3.3" stroke-linecap="round"/>
+          <path d="M11 17h14" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span id="brandName">Christinachloe</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#projects"><span class="num">01.</span>项目</a>
+      <a href="#goals"><span class="num">02.</span>目标</a>
+      <a href="#works"><span class="num">03.</span>成果</a>
+      <button id="themeBtn" class="theme-btn" type="button" aria-label="切换深色/浅色配色">◐</button>
     </nav>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero wrap">
+<aside class="rail rail-left" aria-label="联系入口">
+  <a id="railGithub" href="https://github.com/Christinachloe" target="_blank" rel="noopener" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.6 4.2 18.6 4.5 18.6 4.5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.4 5.9.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg>
+  </a>
+  <a id="railIssues" href="https://github.com/Christinachloe/Christinachloe.github.io/issues" target="_blank" rel="noopener" aria-label="反馈与建议">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 9 9 0 0 1-3.9-.9L3 21l1.9-4.6A8.3 8.3 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</aside>
+
+<aside class="rail rail-right" aria-label="站点地址">
+  <a class="vtext" id="railSite" href="https://christinachloe.github.io/" target="_blank" rel="noopener">christinachloe.github.io</a>
+</aside>
+
+<main id="main">
+  <section id="hero" class="hero">
+    <p class="hi"><span aria-hidden="true">›</span> <span id="heroGreeting">你好，我是</span></p>
     <h1 id="heroName">Christinachloe</h1>
-    <p class="tagline" id="heroTagline">项目 · 目标 · 成果</p>
-    <p class="intro" id="heroIntro">这里是我的项目台账：正在做的东西、接下来的目标、已经跑起来的结果。整站只有 site.json 一个数据源，改它页面就变。</p>
+    <p class="sub" id="heroTagline">项目 · 目标 · 成果</p>
+    <p class="intro" id="heroIntro">这里是我的项目台账：正在做的东西、接下来的目标、已经跑起来的结果。</p>
+    <div class="cta">
+      <a class="btn" href="#projects">看看在做什么 <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" id="ctaGithub" href="https://github.com/Christinachloe" target="_blank" rel="noopener">GitHub</a>
+    </div>
     <div class="links" id="heroLinks"></div>
     <p class="updated" id="updated"></p>
   </section>
 
-  <section id="projects" class="wrap section">
-    <div class="section-head">
+  <section id="projects" class="section">
+    <div class="sec-head">
+      <span class="idx">01.</span>
       <h2>项目</h2>
+      <span class="rule" aria-hidden="true"></span>
       <span class="count" id="projectCount"></span>
     </div>
     <div class="cards" id="projectList"></div>
   </section>
 
-  <section id="goals" class="wrap section">
-    <div class="section-head"><h2>目标计划</h2></div>
+  <section id="goals" class="section">
+    <div class="sec-head">
+      <span class="idx">02.</span>
+      <h2>目标</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count" id="goalCount"></span>
+    </div>
     <div class="timeline" id="goalList"></div>
   </section>
 
-  <section id="works" class="wrap section">
-    <div class="section-head"><h2>成果</h2></div>
+  <section id="works" class="section">
+    <div class="sec-head">
+      <span class="idx">03.</span>
+      <h2>成果</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count" id="workCount"></span>
+    </div>
     <ul class="works" id="workList"></ul>
   </section>
 </main>
 
-<footer class="wrap foot"><span id="footText"></span></footer>
+<footer class="foot">
+  <span id="footText"></span>
+</footer>
 
 <noscript>
-  <div class="wrap" style="padding:24px 24px 64px;color:#8a919c">
-    这个页面靠 JS 读取 site.json 渲染。开启 JS 即可看到内容；文字本身都在
-    <a href="https://github.com/Christinachloe/Christinachloe.github.io/blob/main/site.json" style="color:#5b9dff">site.json</a> 里。
+  <div style="max-width:1080px;margin:0 auto;padding:0 32px 64px;color:#8892b0">
+    这个页面靠 JS 读取 <code>site.json</code> 渲染。开启 JS 即可看到内容；文字本身都在
+    <a href="https://github.com/Christinachloe/Christinachloe.github.io/blob/main/site.json">site.json</a> 里。
   </div>
 </noscript>
 

@@ -1,6 +1,7 @@
 {
   "meta": {
     "name": "Christinachloe",
+    "greeting": "你好，我是",
     "tagline": "项目 · 目标 · 成果",
     "intro": "这里是我的项目台账：正在做的东西、接下来的目标、已经跑起来的结果。整站只有 site.json 一个数据源，改它页面就变。",
     "links": [

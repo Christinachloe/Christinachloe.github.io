@@ -1,79 +1,58 @@
 # christinachloe.github.io
 
-个人主页 / 项目台账。纯静态，无构建步骤，GitHub Pages 直接发布。
-线上地址：https://christinachloe.github.io/
+个人主页兼项目台账。纯静态、零构建、零依赖：一个 HTML、一个 CSS、一个 JS，内容全部在 `site.json`。
 
-## 改内容
-
-所有文字都在 `site.json` 里，改完保存推上去即可，不用碰 HTML/CSS/JS。
-
-| 字段 | 作用 |
-|---|---|
-| `meta.name` | 显示的名字（顶栏、首屏、`<title>` 一起用） |
-| `meta.tagline` | 一句话副标题 |
-| `meta.intro` | 首屏介绍，1–2 句 |
-| `meta.links` | 首屏按钮，`[{label, url}]` |
-| `meta.updated` | 「最后更新」日期 |
-| `projects[]` | 项目卡片：`name` / `summary` / `status` / `stack` / `repo` / `demo` / `note` |
-| `goals[]` | 目标时间线：`period` / `title` / `status` / `items[]` |
-| `works[]` | 成果列表：`date` / `title` / `desc` / `link` |
-
-- `status` 认这几个值：`进行中` `已完成` `规划中`（也认 doing / done / plan）。
-- `repo` / `demo` / `link` 留空就不显示对应按钮，别填没上线的地址。
-- `note` 是卡片底部那行小字，用来说明「现在到哪一步了」，不需要就留空。
+线上：<https://christinachloe.github.io/>
 
 ## 目录
 
-```
-index.html    页面骨架（含 OG / favicon / noscript 兜底）
-style.css     样式（深色默认，浅色由 data-theme 覆盖，右上角 ◐ 切换）
-app.js        读 JSON 渲染，一般不需要改
-site.json     全部内容
-favicon.svg   标签页图标
-og.png        分享卡片图 1200×630（og:image 用）
-robots.txt    允许抓取 + 指向 sitemap
-sitemap.xml   单页站点地图
-404.html      GitHub Pages 的 404 页
-.nojekyll     让 GitHub Pages 不做 Jekyll 处理
+| 文件 | 作用 |
+|---|---|
+| `index.html` | 骨架：顶栏、左右竖栏、四个区块、页脚 |
+| `style.css` | 全部样式。深色为默认，浅色由 `[data-theme="light"]` 覆盖 |
+| `app.js` | 读 `site.json` 渲染项目 / 目标 / 成果，管主题、滚动渐入、当前章节高亮 |
+| `site.json` | **唯一数据源**：改文字只改这里 |
+| `favicon.svg` / `og.png` | 站点图标与分享卡（1200×630） |
+| `robots.txt` / `sitemap.xml` / `404.html` | 静态站配套 |
+
+## 改内容
+
+```jsonc
+{
+  "meta":     { "name", "greeting", "tagline", "intro", "updated", "links": [{ "label", "url" }] },
+  "projects": [{ "name", "summary", "status", "stack": [], "repo", "demo", "note" }],
+  "goals":    [{ "period", "status", "title", "items": [] }],
+  "works":    [{ "date", "title", "desc", "link" }]
+}
 ```
 
-换 `og.png` 时保持 1200×630、深色底，别用远程图床。
+- `status` 认三种词：`进行中`（黄）、`已完成`（青绿）、`规划中`（灰）。
+- 字段留空就自动不渲染（`repo` / `demo` / `note` / `link` 都可以是空串）。
+- 新增条目直接在数组里加对象，不用动 HTML。
 
 ## 本地预览
 
 ```bash
-python -m http.server 8899
-# 打开 http://127.0.0.1:8899/
+cd site
+python -m http.server 8899   # 然后打开 http://127.0.0.1:8899/
 ```
 
-直接双击 `index.html` 会看不到数据——浏览器禁止 `file://` 页面 fetch 本地 JSON。
+直接双击 `index.html` 会因浏览器 `file://` 限制读不到 `site.json`，页面会提示。
+
+## 设计
+
+视觉参照 [bchiang7/v4](https://github.com/bchiang7/v4) 的思路（不引用其代码，本站全部手写）：
+
+- 底色 `#0a192f`，面板 `#112240`，青绿点缀 `#64ffda`，正文 `#8892b0` / 标题 `#e6f1ff`
+- 等宽字体做标号与元信息：`01.` / `02.` / `03.`、状态药丸、日期
+- 章节标题右侧一条细线拉满，宽度由 `flex` 自适应
+- 左右两条固定竖栏（左社交、右站点名），窄屏自动隐藏
+- 首屏压到 `100vh`，进入内容靠滚动
+
+## 换主题
+
+默认跟随系统；点右上角 `◐` 手动切换，选择存在 `localStorage`。改配色只动 `style.css` 顶部两组变量。
 
 ## 发布
 
-GitHub Pages 从 `main` 分支根目录直接发布，推上去等一两分钟即可。
-
-两个坑先说：
-
-- **一个文件一个 commit** 会把历史弄得很碎，Pages 也会跟着重建好几次。GitHub 网页版支持
-  一次上传多个文件（`/upload/main`），多个文件落在同一个 commit 里，只重建一次。
-- **没有 token 也能提交**：网页编辑器 / 上传页用的是浏览器里已有的登录态。有 token 的话最快
-  是一条 `git commit && git push`，或者一次 REST `PUT /repos/{owner}/{repo}/contents/{path}`。
-
-## 带 token 的发布路径（推荐）
-
-本机有一个 fine-grained PAT（名称 `dsh-workstation-site`，90 天有效期），权限只有本仓库
-Contents: Read and write。它存在 `效率优化/private/.gh-token`，不进仓库。
-
-有了 token，最省事的是 git push：
-
-```bash
-TOK=$(cat private/.gh-token)
-git clone "https://x-access-token:$TOK@github.com/Christinachloe/Christinachloe.github.io.git"
-cd Christinachloe.github.io && git commit -am "update" && git push
-```
-
-单文件改动用 REST 也行，不必 clone；没有 token 时退回浏览器登录态那套（见上节）。
-
-两个前提：`api.github.com` 未认证按 IP 限流（60 次/小时），带 token 是 5000 次/小时；
-本机若存在 `HTTP_PROXY` 且代理已死，curl 要加 `--noproxy '*'`，浏览器侧则会偶发
-`ERR_CONNECTION_CLOSED`，重试一次即可。
+站点从 `main` 分支根目录直接发布（GitHub Pages）。提交后 1 分钟左右生效，缓存靠 `og.png?v` 之外的强刷或等 CDN。
