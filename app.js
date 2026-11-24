@@ -139,6 +139,18 @@
     });
   }
 
+  // 成果按日期倒序：YYYY-MM-DD 直接比字符串；没日期的排最后
+  function worksSorted(list) {
+    return list.slice().sort(function (a, b) {
+      var da = a && a.date ? String(a.date) : "";
+      var db = b && b.date ? String(b.date) : "";
+      if (!da && !db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return da < db ? 1 : (da > db ? -1 : 0);
+    });
+  }
+
   function renderWorks(list) {
     var box = document.getElementById("workList");
     box.textContent = "";
@@ -147,9 +159,11 @@
       box.appendChild(el("li", null, "还没有成果条目。"));
       return;
     }
-    list.forEach(function (w) {
+    worksSorted(list).forEach(function (w) {
       var li = el("li", "reveal");
-      li.appendChild(el("span", "date", w.date || ""));
+      var tm = el("time", "date", w.date || "");
+      if (w.date) tm.setAttribute("datetime", w.date);
+      li.appendChild(tm);
       var body = el("div");
       var t = el("div", "wtitle");
       if (w.link) {
@@ -161,6 +175,7 @@
       }
       body.appendChild(t);
       if (w.desc) body.appendChild(el("div", "wdesc", w.desc));
+      if (w.detail) body.appendChild(el("div", "wdetail", w.detail));
       li.appendChild(body);
       box.appendChild(li);
     });
