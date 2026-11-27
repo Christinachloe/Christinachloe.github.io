@@ -14,7 +14,7 @@
         "url": "https://github.com/Christinachloe/Christinachloe.github.io/issues"
       }
     ],
-    "updated": "2026-11-27"
+    "updated": "2026-11-28"
   },
   "projects": [
     {
@@ -77,6 +77,13 @@
     }
   ],
   "works": [
+    {
+      "date": "2026-11-28",
+      "title": "主页日更脚本修掉同日重复缺陷",
+      "desc": "主页日更脚本修掉同日重复缺陷：按（日期 + 项目）原地更新，并清理 11-25 重复条目 1 条",
+      "detail": "",
+      "link": ""
+    },
     {
       "date": "2026-11-27",
       "title": "酒物语 · 2 项落地",
